@@ -1,6 +1,9 @@
 const rootDiv = document.createElement("div");
 const userDiv = document.createElement("div");
 
+rootDiv.id = "rootDiv"
+userDiv.id = "userDiv"
+
 document.body.appendChild(rootDiv);
 rootDiv.appendChild(userDiv);
 
@@ -18,7 +21,7 @@ fetch ('https://randomuser.me/api/')
 function printRandomUser (user) {
   console.log(user.results[0]);
 
-  let userPic = user.results[0].picture.medium;
+  let userPic = user.results[0].picture.large;
   let fName = user.results[0].name.first;
   let lName = user.results[0].name.last;
   let email = user.results[0].email;
@@ -33,8 +36,8 @@ function printRandomUser (user) {
     <h2>${fName} ${lName}</h2>
     
     <ul>
-      <li>${email}</li>
-      <li>${cell}</li>
+      <li>Email: ${email}</li>
+      <li>Cellphone: ${cell}</li>
     </ul>
   `)
 }
