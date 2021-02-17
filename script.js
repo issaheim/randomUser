@@ -8,14 +8,8 @@ document.body.appendChild(rootDiv);
 rootDiv.appendChild(userDiv);
 
 fetch ('https://randomuser.me/api/')
-.then (function (response) {
-  return response.json();
-})
-.then (function (user) {
-  console.log(user);
-
-  printRandomUser(user);
-})
+.then ((response => response.json()))
+.then ((user => printRandomUser(user)));
 
 
 function printRandomUser (user) {
@@ -29,16 +23,6 @@ function printRandomUser (user) {
 
   console.log(cell, fName, email);
 
-  userDiv.insertAdjacentHTML("afterbegin", 
-
-  ` <img src="${userPic}" alt="a picture of the user"> 
-
-    <h2>${fName} ${lName}</h2>
-    
-    <ul>
-      <li>Email: ${email}</li>
-      <li>Cellphone: ${cell}</li>
-    </ul>
-  `)
+  userDiv.insertAdjacentHTML("afterbegin", `<img src="${userPic}" alt="a picture of the user"><h2>${fName} ${lName}</h2><ul><li>Email: ${email}</li><li>Cellphone: ${cell}</li></ul>`)
 }
 
